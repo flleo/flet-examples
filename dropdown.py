@@ -4,18 +4,18 @@ import flet as ft
 
 
 def main(page):
+    page.window_width = 400
+    page.window_height = 400
+
     def button_clicked(e):
         salid = "Desplegable con valor: "
-        # color_dropdown.color = color_dropdown.value
         output_text.value = f"{salid}{color_dropdown.value}"
         output_text.color = color_dropdown.value
         page.update()
 
-    output_text = ft.Text()
-    submit_btn = ft.ElevatedButton(text="Entrega", on_click=button_clicked)
-
-    def cambia(e):
+    def on_change(e):
         color = random.choices(range(256), k=3)
+        print(f'on_change-color: {color}')
         e.color = color
         page.update()
 
@@ -40,49 +40,50 @@ def main(page):
         border_width=5,
         border=ft.border.only(right=ft.colors.GREEN),
         color=ft.colors.RED,
-        content_padding=10,
-        counter_style=ft.TextStyle(decoration_color=ft.colors.AMBER_ACCENT_700),
-        counter_text='contador',
-        dense=True,     # Si TextField es parte de una forma densa (es decir, utiliza menos espacio vertical).
-        error_text='Error',
-        error_style=ft.TextStyle(italic=True, color=ft.colors.CYAN_100),
+        content_padding=50,
+        counter_style=ft.TextStyle(decoration_color=ft.colors.AMBER_ACCENT_700, bgcolor=ft.colors.RED),
+        counter_text='contador red',
+        dense=True,  # Si TextField es parte de una forma densa (es decir, utiliza menos espacio vertical).
+        error_text='Error brown',
+        error_style=ft.TextStyle(italic=True, color=ft.colors.BROWN),
         filled=True,
         focused_color=ft.colors.CYAN_ACCENT_400,
         focused_bgcolor=ft.colors.RED_ACCENT,
         focused_border_color=ft.colors.CYAN_50,
         focused_border_width=2,
-        helper_text='Ayda',
-        helper_style=ft.TextStyle(color='transparent'),
-        hint_text='hint-text',
+        helper_text='Helper error',
+        helper_style=ft.TextStyle(color=ft.colors.ERROR),
+        hint_text='hint-text green',
         hint_style=ft.TextStyle(decoration_color='green'),
         icon=ft.icons.BOY,
-        label='label',
-        label_style=ft.TextStyle(decoration_color='red'),
+        label='label bgreen',
+        label_style=ft.TextStyle(decoration_color='blue', color='green'),
         on_blur=on_blur,
         on_focus=on_focus,
-        on_change=cambia,
+        on_change=on_change,
         opacity=50,
         options=[
             ft.dropdown.Option("red"),
             ft.dropdown.Option("green"),
             ft.dropdown.Option("blue")
         ],
-        prefix_text='prefix_text   ',
+        prefix_text='prefix_text orange  ',
         prefix_style=ft.TextStyle(decoration_color='orange'),
         prefix_icon=ft.icons.HEIGHT,
-        prefix=ft.Text('prefix  '),
-        suffix_text='  suffix_text',
+        prefix=ft.Text('prefix orange  '),
+        suffix_text='  suffix_text blue',
         suffix_style=ft.TextStyle(decoration_color='blue'),
         suffix_icon=ft.icons.NOTIFICATIONS,
-        suffix=ft.Text('  suffix'),
+        suffix=ft.Text('  suffix blue'),
         text_size=20,
-        text_style=ft.TextStyle(decoration_color=ft.colors.CYAN_ACCENT_400),
-        value='Azul',
+        text_style=ft.TextStyle(decoration_color=ft.colors.CYAN_ACCENT_400, bgcolor=ft.colors.BLUE_900,
+                                color=ft.colors.GREEN),
+        value='green',
         width=300,
     )
 
-    page.window_width = 400
-    page.window_height = 400
+    output_text = ft.Text()
+    submit_btn = ft.ElevatedButton(text="Entrega", on_click=button_clicked)
 
     page.add(
         ft.Container(
