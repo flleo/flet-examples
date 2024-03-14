@@ -1,10 +1,11 @@
 # mongoDB operations in Python
 
-## En raiz del proyecto, creamos entorno virtual
+## En raiz del proyecto, si creamos entorno virtual
 <pre>py -m venv ./.venv
 echo '.venv'>>.gitignore
 </pre>
-## Run the following on OSX & Linux:
+
+### Run the following on OSX & Linux to acitvate it:
 <pre>
 source ./.venv/bin/activate
 </pre>
