@@ -15,6 +15,10 @@ https://cloud.mongodb.com/v2/65f2cf7c73b7ce34221d868f#/overview
 ## Application Development
 Python
 
+Para dotenv 
+<pre>
+pip install python-dotenv
+</pre>
 Get connection string
 
 
