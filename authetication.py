@@ -2,6 +2,7 @@ import flet as ft
 from flet import TextField, Checkbox, ElevatedButton, Text, Row, Column
 from flet_core.control_event import ControlEvent
 
+
 def main(page: ft.Page) -> None:
     page.title = 'Registro'
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
@@ -11,10 +12,10 @@ def main(page: ft.Page) -> None:
     page.window_resizable = True
 
     # Setup our fields
-    text_username: TextField =TextField(label='Usuario', text_align=ft.TextAlign.LEFT, width=200)
-    text_password: TextField = TextField(label='Contraseña', text_align=ft.TextAlign.LEFT, width=200, password=True)
-    checkbox_signup: Checkbox = Checkbox(label='Quiero darme de alta', value=False)
-    button_submit: ElevatedButton = ElevatedButton(text='Registrate', width=200, disabled=True)
+    text_username: TextField = ft.TextField(label='Usuario', text_align=ft.TextAlign.LEFT, width=200)
+    text_password: TextField = ft.TextField(label='Contraseña', text_align=ft.TextAlign.LEFT, width=200, password=True)
+    checkbox_signup: Checkbox = ft.Checkbox(label='Quiero darme de alta', value=False)
+    button_submit: ElevatedButton = ft.ElevatedButton(text='Registrate', width=200, disabled=True)
 
     def validate(e: ControlEvent) -> None:
         if all([text_username.value, text_password.value, checkbox_signup.value]):
@@ -32,7 +33,7 @@ def main(page: ft.Page) -> None:
         page.add(
             Row(
                 controls=[Text(value=f'Bienvenido: {text_username.value}', size=20)],
-                alignment= ft.MainAxisAlignment.CENTER
+                alignment=ft.MainAxisAlignment.CENTER
             )
         )
 
@@ -56,6 +57,7 @@ def main(page: ft.Page) -> None:
             alignment=ft.MainAxisAlignment.CENTER
         )
     )
+
 
 if __name__ == '__main__':
     ft.app(target=main)

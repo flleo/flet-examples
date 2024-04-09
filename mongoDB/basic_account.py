@@ -31,10 +31,12 @@ sel_acs = {'account_type': 'saving'}
 set_field = {'$inc': {'balance': 100}}
 set_field2 = {'$set': {'minimum_balance': 100}}
 set_field3 = {'$set': {'transfers_complete': []}}
+set_field4 = {'$set': {'prueba': 1}}
 # Delete
 doc_to_del = {'balance': {'$lt': 100}}
 doc_to_del2 = {'balance': {'$lt': 100}}
 item_to_del = 'transfers_complete'
+item_to_del2 = 'prueba'
 
 
 def find(collection, docs):
@@ -97,21 +99,22 @@ def delete_item_collection(collection, item):
 
 def delete_one(collection, doc):
     re = collection.delete_one(doc)
-    print(re.deleted_count)
-    print(f'Documents deleted:\n {re.deleted_count}')
-    return re.deleted_count
+    count = re.deleted_count
+    print(f'Documents deleted:\n {count}')
+    return count
 
 
 def delete_many(collection, docs):
     re = collection.delete_many(docs)
-    print(f'Documents deleted:\n {re.deleted_count}')
-    return re.deleted_count
+    count = re.deleted_count
+    print(f'Documents deleted:\n {count}')
+    return count
 
 
 # coll = find(accounts_collection, [])
 # Añade campo a colección
-# update_many(accounts_collection, {}, set_field3)
-# delete_item_collection(accounts_collection, item_to_del)
+# update_many(accounts_collection, {}, set_field4)
+# delete_item_collection(accounts_collection, item_to_del2)
 # delete_many(accounts_collection, {})
 # update_many(accounts_collection, dsf2, set_field3)
 # insert_many(accounts_collection, nas)
