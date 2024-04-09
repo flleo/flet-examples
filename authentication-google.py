@@ -5,7 +5,6 @@ from flet import ElevatedButton, LoginEvent, Page
 from flet.auth.providers import GoogleOAuthProvider
 
 
-
 def main(page: Page):
     provider = GoogleOAuthProvider(
         client_id='clientID',
