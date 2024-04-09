@@ -8,8 +8,8 @@ from flet.auth.providers import GoogleOAuthProvider
 
 def main(page: Page):
     provider = GoogleOAuthProvider(
-        client_id=clientID,
-        client_secret=clientSecret,
+        client_id='clientID',
+        client_secret='clientSecret',
         redirect_url="http://localhost:8503/api/oauth/redirect",
     )
 
