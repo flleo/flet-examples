@@ -3,9 +3,10 @@ import os
 import flet
 from flet import ElevatedButton, LoginEvent, Page
 from flet.auth.providers import GoogleOAuthProvider
+from services import clave
 
-#clientID = "578696867257-qcftm0p5gh4uo9i7e832ge85rm0tdve3.apps.googleusercontent.com"
-# clientSecret = "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"
+clientID = clave.clientID
+clientSecret = clave.clientSecret
 
 
 def main(page: Page):
